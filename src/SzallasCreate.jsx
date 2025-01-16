@@ -14,5 +14,21 @@ export const SzallasCreate=()=>{
         "location":'',
         "price": 0,
         "minimum_nights":'',
-    })
-}
+    });
+
+    useEffect(()=>{
+        const vantaEffect=NET({
+            el: vantaRef.current,
+            THREE,
+            color: 0xff0000,
+            backgroundColor: 0x001f3f,
+            points: 12.0,
+            maxDistance: 20.0,
+            spacing: 18.0,
+        });
+        return ()=>{
+            if (vantaEffect) vantaEffect.destroy();
+        };
+    }, []);
+
+};
